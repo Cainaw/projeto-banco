@@ -114,20 +114,8 @@ public class Empresa {
 	public String [] getFuncoes() {
 		String [] lista = new String[5];
 		
-		int indice = 0;
-		boolean verificador;
-		for (Funcionario funcionario : funcionarios) {
-			verificador = true;
-			for (String funcao : lista) {
-				if (funcao.equalsIgnoreCase(funcionario.getFuncao())) {
-					verificador = false;
-					break;
-				}
-			}
-			
-			if (verificador)
-				lista[indice++] = funcionario.getFuncao();
-		}
+		lista[0] = Funcionario.getStaticFuncao();
+		lista[1] = Gerente.getStaticFuncao();
 		
 		return lista;
 	}
