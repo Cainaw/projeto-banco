@@ -3,6 +3,9 @@ package gerencia;
 import util.*;
 
 public class Funcionario extends Pessoa {
+	private static String funcao;
+	private static double bonificacao;
+	
 	private String departamento;
 	private String identificador;
 	private Double salario;
@@ -13,15 +16,9 @@ public class Funcionario extends Pessoa {
 		super.setNome(nome);
 		super.setSobrenome(sobrenome);
 		super.setCpf(cpf);
+		this.setFuncao("Funcionario");
 	}
-	
-	public Boolean bonificar(Double porcentagem) {
-		if (porcentagem > 0.0 && salario != null) {
-			this.salario += this.salario * (porcentagem / 100.0);
-			return true;
-		} return false;
-	}
-	
+
 	public void extrairDados() {
 		System.out.println("Nome completo: " + super.getNome() + " " + super.getSobrenome());
 		System.out.println("CPF: " + super.getCpf());
@@ -65,6 +62,8 @@ public class Funcionario extends Pessoa {
 		}
 		else
 			System.out.println("Indisponível");
+		
+		System.out.print("Função: " + this.getFuncao());
 	}
 	
 	public void contratar() {
@@ -84,6 +83,20 @@ public class Funcionario extends Pessoa {
 		this.departamento = departamento;
 	}
 	
+	public static String getStaticFuncao() {
+		return Funcionario.funcao;
+	}
+	
+	public String getFuncao() {
+		return Funcionario.funcao;
+	}
+	
+	
+	
+	public void setFuncao(String funcao) {
+		Funcionario.funcao = funcao;
+	}
+
 	public Double getSalario() {
 		return salario;
 	}
@@ -110,5 +123,14 @@ public class Funcionario extends Pessoa {
 
 	public void setIdentificador(Integer identificador) {
 		this.identificador = identificador.toString();
+	}
+	
+	public double getBonificacao() {
+		return bonificacao;
+	}
+	
+	public void setBonificacao(double bonificacao) {
+		if (bonificacao >= 0.0)
+			Funcionario.bonificacao = bonificacao;
 	}
 }

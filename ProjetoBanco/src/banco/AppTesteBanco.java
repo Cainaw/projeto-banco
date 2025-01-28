@@ -7,6 +7,7 @@ public class AppTesteBanco {
 	public static void main(String[] args) {
 		System.out.println("Contas: " + Conta.getNumero());
 		
+		/*
 		Conta conta = new Conta("Cai", "Nam", "1234");
 		
 		conta.depositar(500.0);
@@ -21,13 +22,15 @@ public class AppTesteBanco {
 		System.out.println("Saldo atual: " + conta.getSaldo());
 		System.out.println("Emprestimo: " + conta.getEmprestimo());
 		
+		*/
+		
 		Empresa empresa = new Empresa("Abelha", "1234", 3);
 		
-		empresa.contratarFuncionario(new Funcionario("Cainã Mateus", "Wanzeler Costa", "12345"));
-		empresa.contratarFuncionario(new Funcionario("Maria Gabrielly", "dos Santos Lima", "23456"));
-		empresa.contratarFuncionario(new Funcionario("Sofia Louise", "Wanzeler Duarte", "34567"));
+		empresa.contratar(new Gerente("Cainã Mateus", "Wanzeler Costa", "12345"));
+		empresa.contratar(new Funcionario("Maria Gabrielly", "dos Santos Lima", "23456"));
+		empresa.contratar(new Funcionario("Sofia Louise", "Wanzeler Duarte", "34567"));
 		
-		empresa.demitirFuncionario(empresa.acharFuncionario(1));
+		empresa.demitir(empresa.acharFuncionario(1));
 		empresa.setQtdFuncionarios(3);
 		
 		

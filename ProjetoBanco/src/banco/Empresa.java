@@ -6,7 +6,6 @@ import gerencia.*;
 
 public class Empresa {
 	private Funcionario [] funcionarios;
-	private Gerente gerente;
 	private String nome;
 	private String cpnj;
 	private String senha;
@@ -19,25 +18,7 @@ public class Empresa {
 		totalFuncionarios = 0;
 	}
 	
-	public Boolean contratarGerente(Gerente gerente) {
-		if (this.gerente == null) {
-			this.gerente = gerente;
-			gerente.contratar();
-			return true;
-		}
-		return false;
-	}
-	
-	public Boolean demitirGerente() {
-		if (this.gerente != null) {
-			this.gerente.demitir();
-			this.gerente = null;
-			return true;
-		}
-		return false;
-	}
-	
-	public Boolean contratarFuncionario(Funcionario funcionario) {
+	public Boolean contratar(Funcionario funcionario) {
 		int indice = 0;
 		for (Funcionario f : funcionarios) {
 			if (f == null) {
@@ -52,7 +33,7 @@ public class Empresa {
 		return false;
 	}
 	
-	public Boolean demitirFuncionario(Funcionario funcionario) {
+	public Boolean demitir(Funcionario funcionario) {
 		int indice = 0;
 		for (Funcionario f : funcionarios) {
 			if (f.equals(funcionario)) {
@@ -100,7 +81,7 @@ public class Empresa {
 	}
 
 	private String getSenha() {
-		return senha;
+		return this.senha;
 	}
 
 	public void setSenha(String senha) {
@@ -130,5 +111,24 @@ public class Empresa {
 		return true;
 	}
 	
-	
+	public String [] getFuncoes() {
+		String [] lista = new String[5];
+		
+		int indice = 0;
+		boolean verificador;
+		for (Funcionario funcionario : funcionarios) {
+			verificador = true;
+			for (String funcao : lista) {
+				if (funcao.equalsIgnoreCase(funcionario.getFuncao())) {
+					verificador = false;
+					break;
+				}
+			}
+			
+			if (verificador)
+				lista[indice++] = funcionario.getFuncao();
+		}
+		
+		return lista;
+	}
 }

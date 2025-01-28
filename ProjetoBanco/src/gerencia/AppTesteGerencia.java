@@ -3,7 +3,7 @@ package gerencia;
 public class AppTesteGerencia {
 
 	public static void main(String[] args) {
-		Funcionario cai = new Funcionario("Cai", "Mathew", "234");
+		Funcionario cai = new Gerente("Cai", "Mathew", "234");
 		
 		
 		
@@ -11,7 +11,7 @@ public class AppTesteGerencia {
 		cai.setDataEntrada(1, 7, 2004);
 		cai.setSalario(2000.0);
 		
-		cai.bonificar(15.0);
+		//cai.bonificar(15.0);
 		cai.setIdentificador(10);
 		
 		cai.setDepartamento("TI");
