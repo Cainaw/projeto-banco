@@ -5,6 +5,7 @@ import gerencia.*;
 // modificar a parte de contratações e demissões para adicionar robustez ao projeto
 
 public class Empresa {
+	private ControleDeBonificacao controle = new ControleDeBonificacao();
 	private Funcionario [] funcionarios;
 	private String nome;
 	private String cpnj;
@@ -16,6 +17,10 @@ public class Empresa {
 		this.cpnj = cnpj;
 		funcionarios = new Funcionario[qtdFuncionarios];
 		totalFuncionarios = 0;
+	}
+	
+	public void bonificar() {
+		controle.bonificar(funcionarios);
 	}
 	
 	public Boolean contratar(Funcionario funcionario) {

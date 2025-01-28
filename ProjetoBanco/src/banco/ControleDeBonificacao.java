@@ -5,8 +5,8 @@ import gerencia.*;
 public class ControleDeBonificacao {
 	public void bonificar(Funcionario [] funcionarios) {
 		for (Funcionario funcionario : funcionarios) {
-			Double novoSalario = funcionario.getSalario() * (funcionario.getBonificacao() + 1.0);
-			funcionario.setSalario(novoSalario);
+			if (funcionario != null)
+				funcionario.bonificar();
 		}
 	}
 	

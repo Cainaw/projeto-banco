@@ -42,8 +42,8 @@ public class Funcionario extends Pessoa {
 			System.out.println("Indisponível");
 		
 		System.out.print("Salário: ");
-		if (salario != null)
-			System.out.println(salario);
+		if (getSalario() != null)
+			System.out.println(getSalario());
 		else
 			System.out.println("Indisponível");
 		
@@ -125,8 +125,12 @@ public class Funcionario extends Pessoa {
 		this.identificador = identificador.toString();
 	}
 	
+	public void bonificar() {
+		this.salario += (getBonificacao() * this.salario);
+	}
+	
 	public double getBonificacao() {
-		return bonificacao;
+		return Funcionario.bonificacao;
 	}
 	
 	public void setBonificacao(double bonificacao) {

@@ -5,37 +5,31 @@ import gerencia.*;
 public class AppTesteBanco {
 
 	public static void main(String[] args) {
-		System.out.println("Contas: " + Conta.getNumero());
-		
-		/*
-		Conta conta = new Conta("Cai", "Nam", "1234");
-		
-		conta.depositar(500.0);
-		
-		conta.sacar(650.0);
-		conta.depositar(200.0);
-		
-		conta.pagarEmprestimo();
-		
-		conta.sacar(250.0);
-		
-		System.out.println("Saldo atual: " + conta.getSaldo());
-		System.out.println("Emprestimo: " + conta.getEmprestimo());
-		
-		*/
-		
+		// erro ao mostrar dados dos funcionarios
 		Empresa empresa = new Empresa("Abelha", "1234", 3);
+		Gerente gerente = new Gerente("Cainã Mateus", "Wanzeler Costa", "12345");
 		
-		empresa.contratar(new Gerente("Cainã Mateus", "Wanzeler Costa", "12345"));
-		empresa.contratar(new Funcionario("Maria Gabrielly", "dos Santos Lima", "23456"));
-		empresa.contratar(new Funcionario("Sofia Louise", "Wanzeler Duarte", "34567"));
+		gerente.setSalario(5000.0);
+		gerente.setBonificacao(0.1);
+		empresa.contratar(gerente);
+		empresa.bonificar();
 		
-		empresa.demitir(empresa.acharFuncionario(1));
-		empresa.setQtdFuncionarios(3);
+		System.out.println("Salario: " + gerente.getSalario());
+		System.out.println("Bonus: " + gerente.getBonificacao());
 		
 		
 		
-		//empresa.dadosFuncionarios();
+		
+		
+		empresa.dadosFuncionarios();
+		
+		//empresa.contratar(new Funcionario("Maria Gabrielly", "dos Santos Lima", "23456"));
+		//empresa.contratar(new Funcionario("Sofia Louise", "Wanzeler Duarte", "34567"));
+		
+		//empresa.demitir(empresa.acharFuncionario(1));
+		//empresa.setQtdFuncionarios(3);
+		
+		
 	}
 
 }
