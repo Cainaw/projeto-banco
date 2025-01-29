@@ -17,10 +17,6 @@ public class AppTesteBanco {
 		System.out.println("Salario: " + gerente.getSalario());
 		System.out.println("Bonus: " + gerente.getBonificacao());
 		
-		
-		
-		
-		
 		empresa.dadosFuncionarios();
 		
 		//empresa.contratar(new Funcionario("Maria Gabrielly", "dos Santos Lima", "23456"));
