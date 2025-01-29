@@ -11,6 +11,7 @@ public class ContaDigital implements Conta {
 		this.credito = false;
 		this.limiteEstabelecido = 0.0;
 		this.limiteUsado = this.limiteEstabelecido;
+		this.saldo = 0.0;
 		ContaDigital.id++;
 	}
 
@@ -29,7 +30,7 @@ public class ContaDigital implements Conta {
 				System.out.println("Saque efetuado com sucesso!");
 				return true;
 			}
-			System.out.println("Valor insuficiente para o saque!");
+			System.out.println("Saldo insuficiente para o saque!");
 			return false;
 		}
 		catch (Exception e) {
@@ -69,7 +70,31 @@ public class ContaDigital implements Conta {
 			return null;
 		}
 	}
+	
+	public Boolean pagarLimite() {
+		String saida = "O crédito está desativado!";
+		if (this.isCredito()) {
+			saida = "Você não tem nenhuma divida ainda! PS: Ainda ;)";
+			if (this.getLimiteEstabelecido() != this.getLimiteUsado()) {
+				Double divida = this.getLimiteEstabelecido() - this.getLimiteUsado();
+				
+				if (this.getSaldo() >= divida) {
+					this.saldo -= divida;
+					System.out.println("Divida quitada com sucesso!");
+					return true;
+				}
+				
+				saida = "Saldo insuficiente para o pagamento.";
+			}
+		}
+		System.out.println(saida);
+		return false;
+	}
 
+ 	public Double getSaldo() {
+		return saldo;
+	}
+ 	
 	public Boolean isCredito() {
 		return this.credito;
 	}
@@ -77,8 +102,10 @@ public class ContaDigital implements Conta {
 	public void setCredito() {
 		if (this.isCredito()) {
 			if (this.getLimiteEstabelecido() == this.getLimiteUsado()) {
+				this.setLimiteEstabelecido(0.0);
 				this.credito = !this.isCredito();
 				System.out.println("Débito ativado.");
+				
 				return;
 			}
 			System.out.println("O limite está pendente...");
@@ -86,6 +113,7 @@ public class ContaDigital implements Conta {
 		}
 		
 		this.credito = !this.isCredito();
+		this.setLimiteEstabelecido(200.0);
 		System.out.println("Crédito ativado.");
 	}
 	
@@ -103,12 +131,17 @@ public class ContaDigital implements Conta {
 	
 	public void setLimiteEstabelecido(Double novoLimite) {
 		try {
-			if (this.getLimiteUsado() == this.getLimiteEstabelecido()) {
-				this.limiteEstabelecido = novoLimite;
-				System.out.println("Valor do limite alterado com sucesso!");
+			if (this.isCredito()) {
+				if (this.getLimiteUsado() == this.getLimiteEstabelecido()) {
+					this.limiteEstabelecido = novoLimite;
+					this.limiteUsado = this.limiteEstabelecido;
+					System.out.println("Valor do limite alterado com sucesso!");
+					return;
+				}
+				System.out.println("Limite ainda está em debito!");
 				return;
 			}
-			System.out.println("Limite ainda está em debito!");
+			System.out.println("O cartão de crédito está desativado!");
 		}
 		catch (Exception e) {
 			System.out.println("Erro ao tentar estabelecer novo limite: " + e.getMessage());
