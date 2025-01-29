@@ -5,9 +5,5 @@ public interface Conta {
 	
 	public Boolean depositar(Double valor);
 	
-	public Boolean pedirEmprestimo(Double valor);
-	
-	public Boolean pagarEmprestimo();
-	
 	public Boolean transferir(Conta conta, Double valor);
 }

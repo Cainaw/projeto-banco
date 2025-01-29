@@ -5,14 +5,12 @@ public class ContaDigital implements Conta {
 	private Double saldo;
 	private Double limiteEstabelecido;
 	private Double limiteUsado;
-	private Double emprestimo;
 	private Boolean credito;
 	
 	ContaDigital () {
 		this.credito = false;
 		this.limiteEstabelecido = 0.0;
 		this.limiteUsado = this.limiteEstabelecido;
-		this.emprestimo = 0.0;
 		ContaDigital.id++;
 	}
 
@@ -58,18 +56,6 @@ public class ContaDigital implements Conta {
 	}
 
 	@Override
-	public Boolean pedirEmprestimo(Double valor) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public Boolean pagarEmprestimo() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
 	public Boolean transferir(Conta conta, Double valor) {
 		try {
 			if (this.sacar(valor)) {
@@ -101,14 +87,6 @@ public class ContaDigital implements Conta {
 		
 		this.credito = !this.isCredito();
 		System.out.println("Crédito ativado.");
-	}
-
-	public Double getEmprestimo() {
-		return emprestimo;
-	}
-
-	public void setEmprestimo(Double emprestimo) {
-		this.emprestimo = emprestimo;
 	}
 	
 	public static int getId() {
