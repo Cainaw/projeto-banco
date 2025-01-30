@@ -5,7 +5,7 @@ public class Gerente extends Funcionario {
 	
 	public Gerente(String nome, String sobrenome, String cpf) {
 		super(nome, sobrenome, cpf);
-		super.setFuncao("Gerente");
+		//super.setFuncao("Gerente");
 	}
 
 	public String getSenha() {

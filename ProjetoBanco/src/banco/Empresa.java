@@ -15,12 +15,13 @@ public class Empresa {
 	public Empresa(String nome, String cnpj, int qtdFuncionarios) {
 		this.nome = nome;
 		this.cpnj = cnpj;
+		this.senha = "12345";
 		funcionarios = new Funcionario[qtdFuncionarios];
 		totalFuncionarios = 0;
 	}
 	
 	public void bonificar() {
-		controle.bonificar(funcionarios);
+		controle.bonificarFuncionarios(funcionarios);
 	}
 	
 	public Boolean contratar(Funcionario funcionario) {
@@ -114,14 +115,5 @@ public class Empresa {
 		funcionarios = novoEspaco;
 		
 		return true;
-	}
-	
-	public String [] getFuncoes() {
-		String [] lista = new String[5];
-		
-		lista[0] = Funcionario.getStaticFuncao();
-		lista[1] = Gerente.getStaticFuncao();
-		
-		return lista;
 	}
 }

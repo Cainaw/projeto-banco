@@ -1,4 +1,4 @@
-package banco;
+package contas;
 
 public class AtualizadorDeContas {
 
