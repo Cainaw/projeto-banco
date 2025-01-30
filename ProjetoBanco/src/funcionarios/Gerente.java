@@ -1,4 +1,4 @@
-package gerencia;
+package funcionarios;
 
 public class Gerente extends Funcionario {
 	private String senha;

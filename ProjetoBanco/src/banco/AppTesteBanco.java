@@ -1,6 +1,6 @@
 package banco;
 
-import gerencia.*;
+import funcionarios.*;
 
 public class AppTesteBanco {
 

@@ -1,6 +1,6 @@
-package gerencia;
+package funcionarios;
 
-public class AppTesteGerencia {
+public class AppTesteFuncionario {
 
 	public static void main(String[] args) {
 		Funcionario cai = new Gerente("Cai", "Mathew", "234");

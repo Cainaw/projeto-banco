@@ -1,6 +1,6 @@
 package banco;
 
-import gerencia.*;
+import funcionarios.*;
 
 // modificar a parte de contratações e demissões para adicionar robustez ao projeto
 

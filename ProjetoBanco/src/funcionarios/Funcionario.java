@@ -1,4 +1,4 @@
-package gerencia;
+package funcionarios;
 
 import util.*;
 
