@@ -1,6 +1,6 @@
 package contas;
-
-public class ContaDigital implements Conta {
+		
+public class ContaDigital implements Conta{
 	private static int id;
 	private Double saldo;
 	private Double limiteEstabelecido;
