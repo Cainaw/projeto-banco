@@ -3,11 +3,11 @@ package funcionarios;
 import util.*;
 
 public class Funcionario extends Pessoa {
+	private Bonus bonificacao = new Bonus();
+	private Double salario;
 	private String funcao;
-	private double bonificacao;
 	private String departamento;
 	private String identificador;
-	private Double salario;
 	private Boolean demitido;
 	private Data dataEntrada;
 	
@@ -16,7 +16,6 @@ public class Funcionario extends Pessoa {
 		super.setSobrenome(sobrenome);
 		super.setCpf(cpf);
 		this.funcao = "Funcionario";
-		this.bonificacao = 0.0;
 	}
 
 	public void extrairDados() {
@@ -88,11 +87,13 @@ public class Funcionario extends Pessoa {
 	}
 
 	public Double getSalario() {
-		return salario;
+		return this.salario;
 	}
 	
 	public void setSalario(Double salario) {
-		this.salario = salario;
+		if (salario != null) {
+			this.salario = salario;
+		}
 	}
 	
 	public Boolean getDemitido() {
@@ -115,16 +116,7 @@ public class Funcionario extends Pessoa {
 		this.identificador = identificador.toString();
 	}
 	
-	public void bonificar() {
-		this.salario += this.bonificacao;
-	}
-	
-	public double getBonificacao() {
+	public Bonus getBonificacao() {
 		return this.bonificacao;
-	}
-	
-	public void setBonificacao(double bonificacao) {
-		if (bonificacao >= 0.0)
-			this.bonificacao = bonificacao;
 	}
 }

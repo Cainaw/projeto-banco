@@ -7,25 +7,23 @@ public class ControleDeBonificacao {
 		this.registroBonificacao = 0.0;
 	}
 	
-	public void bonificarFuncionarios(Funcionario [] funcionarios) {
-		for (Funcionario funcionario : funcionarios) {
-			if (funcionario != null) {
-				funcionario.bonificar();
-				registrarBonificacao(funcionario);
-			}
+	public void bonificar(Funcionario funcionario, Double valor) {
+		if (funcionario.getBonificacao().setBonus(valor)) {
+			registrarBonificacao(funcionario);
 		}
 	}
 	
-	public void registrarBonificacao(Funcionario funcionario) {
-		this.registroBonificacao += funcionario.getBonificacao();
-	}
-	
-	public Double getBonificacao(Funcionario funcionario) {
-		return funcionario.getBonificacao();
-	}
-
-	public void setBonificacao(Funcionario funcionario, double bonificacao) {
-		funcionario.setBonificacao(bonificacao);
+	public Boolean registrarBonificacao(Funcionario funcionario) {
+		try {
+			if (funcionario != null) {
+				this.registroBonificacao += funcionario.getBonificacao().getBonus();
+				return true; 
+			} return false;
+		}
+		catch (Exception e) {
+			System.err.println("Erro ao fazer registro: " + e.getMessage());
+			return null;
+		}
 	}
 	
 	public Double getRegistro() {

@@ -10,14 +10,14 @@ public class AppTesteBanco {
 		Gerente gerente = new Gerente("Cainã Mateus", "Wanzeler Costa", "12345");
 		
 		gerente.setSalario(5000.0);
-		gerente.setBonificacao(0.1);
 		empresa.contratar(gerente);
-		empresa.bonificar();
+		empresa.getControle().bonificar(gerente, 400.0);
 		
 		System.out.println("Salario: " + gerente.getSalario());
-		System.out.println("Bonus: " + gerente.getBonificacao());
+		System.out.println("Bonus: " + gerente.getBonificacao().getBonus());
 		
 		empresa.dadosFuncionarios();
+		
 		
 		//empresa.contratar(new Funcionario("Maria Gabrielly", "dos Santos Lima", "23456"));
 		//empresa.contratar(new Funcionario("Sofia Louise", "Wanzeler Duarte", "34567"));

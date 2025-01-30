@@ -2,8 +2,6 @@ package banco;
 
 import funcionarios.*;
 
-// modificar a parte de contratações e demissões para adicionar robustez ao projeto
-
 public class Empresa {
 	private ControleDeBonificacao controle = new ControleDeBonificacao();
 	private Funcionario [] funcionarios;
@@ -18,10 +16,6 @@ public class Empresa {
 		this.senha = "12345";
 		funcionarios = new Funcionario[qtdFuncionarios];
 		totalFuncionarios = 0;
-	}
-	
-	public void bonificar() {
-		controle.bonificarFuncionarios(funcionarios);
 	}
 	
 	public Boolean contratar(Funcionario funcionario) {
@@ -86,7 +80,7 @@ public class Empresa {
 		return cpnj;
 	}
 
-	private String getSenha() {
+	public String getSenha() {
 		return this.senha;
 	}
 
@@ -115,5 +109,9 @@ public class Empresa {
 		funcionarios = novoEspaco;
 		
 		return true;
+	}
+	
+	public ControleDeBonificacao getControle() {
+		return this.controle;
 	}
 }
